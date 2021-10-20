@@ -1,14 +1,19 @@
-import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
-import Abc from 'components/AA/Abc';
+import React, { Component } from 'react';
+import { createStore, applyMiddleware } from "redux"; //Add
+import { Provider } from "react-redux";
+import { composeWithDevTools } from 'redux-devtools-extension'; //리덕스 크롬 개발자도구 사용하기 위한 라이브러리
+import reducers from 'modules/reducers';
+import thunk from "redux-thunk";
+import App from './App/App';
 
-export default function App() {
-  return (
-    <View>
-      <Text>App</Text>
-      <Abc />
-    </View>
-  )
+const store = createStore(reducers, composeWithDevTools(applyMiddleware(thunk)));
+
+export default class Root extends Component {
+  render() {
+    return (
+      <Provider store={ store }>
+        <App />
+      </Provider>
+    )
+  }
 }
-
-const styles = StyleSheet.create({})
