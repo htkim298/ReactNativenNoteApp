@@ -7,42 +7,45 @@ import HomeDetail from 'components/screens/HomeDetailScreen';
 import Ionicons from 'react-native-vector-icons/Ionicons'; 
 
 const HomeStack = createStackNavigator(); 
-const HomeStackScreen = ({}) => {
+const HomeStackScreen = ({}) => { 
   return ( 
     <HomeStack.Navigator> 
-      <HomeStack.Screen 
+      <HomeStack.Screen
         name='Home'
+        options={{ headerShown: false }}
         component={HomeScreen} 
       /> 
     </HomeStack.Navigator> 
-  )
-}
+  ) 
+} 
 
-const Tab = createBottomTabNavigator();
-const TabStackScreen = () => {
+const Tab = createBottomTabNavigator(); 
+const TabStackScreen = () => { 
   return ( 
-      <Tab.Navigator
+      <Tab.Navigator  
         screenOptions={({ route }) => ({ 
           tabBarIcon: ({ focused, color, size }) => { 
-            let iconName;
+            let iconName; 
             if (route.name === 'HomeScreen') { 
               iconName = focused 
                 ? 'ios-information-circle' 
                 : 'ios-information-circle-outline'; 
             } else if (route.name === 'HomeDetail') { 
               iconName = focused ? 'ios-list-circle' : 'ios-list-circle-outline'; 
-            }
+            } 
             // You can return any component that you like here! 
             return <Ionicons name={iconName} size={size} color={color} />; 
           },
+          tabBarStyle: { position: 'absolute' },
           tabBarActiveTintColor: 'tomato', 
           tabBarInactiveTintColor: 'gray', 
-          headerShown: false
-        })}
+          headerShown: false 
+        })} 
         > 
         <Tab.Screen name="HomeScreen" component={HomeStackScreen} /> 
         <Tab.Screen name="HomeDetail" component={HomeDetail} /> 
       </Tab.Navigator> 
   ); 
 } 
+
 export default TabStackScreen;
