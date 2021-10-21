@@ -4,14 +4,13 @@ import styled from 'styled-components';
 
 const ViewStyled = styled(View)`
     color: red;
-background-color: red;
-
+    background-color: red;
 `;
 
 export default function HomeDetailScreen() {
     return (
         <View style={{ flex:1, backgroundColor: 'white'}}>
-            <Text>홈디테일</Text>
+            <Text>홈 디테일 화면</Text>
         </View>
     )
 }
