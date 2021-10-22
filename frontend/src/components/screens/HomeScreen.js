@@ -12,7 +12,7 @@ const FontStyled = styled(Text)`
 
 export default function HomeScreen() {
     return (
-        <View style={{ flex:1, backgroundColor: 'white'}}>
+        <View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: 'white' }}>
             <Text>홈 화면</Text>
         </View>
     )

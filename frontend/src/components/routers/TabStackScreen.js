@@ -36,29 +36,30 @@ const ProfileStackScreen = ({}) => {
 const Tab = createBottomTabNavigator(); 
 const TabStackScreen = () => { 
   return ( 
-      <Tab.Navigator  
+      <Tab.Navigator
         screenOptions={({ route }) => ({ 
           tabBarIcon: ({ focused, color, size }) => { 
             let iconName; 
             if (route.name === 'Home') { 
               iconName = focused 
-                ? 'ios-home-sharp' 
+                ? 'ios-home' 
                 : 'ios-home-outline'; 
             } else if (route.name === 'HomeDetail') { 
-              iconName = focused ? 'ios-list-circle' : 'ios-list-circle-outline'; 
+              iconName = focused ? 'layers' : 'layers-outline'; 
             } else if (route.name === 'Profile') { 
-              iconName = focused ? 'ios-person-circle-sharp' : 'ios-person-circle-outline'; 
-            } 
+              iconName = focused ? 'ios-person' : 'ios-person-outline'; 
+            }
             
             // You can return any component that you like here! 
-            return <Ionicons name={iconName} size={size} color={color} />; 
+            return <Ionicons name={iconName} size={29} color={color} />; 
           },
           tabBarStyle: { position: 'absolute' },
+          tabBarShowLabel: false,
           tabBarActiveTintColor: 'tomato', 
           tabBarInactiveTintColor: 'gray', 
-          headerShown: false 
-        })} 
-        > 
+          headerShown: false,
+        })}
+        >
         <Tab.Screen name="Home" component={HomeStackScreen} /> 
         <Tab.Screen name="HomeDetail" component={HomeDetail} />
         <Tab.Screen name="Profile" component={ProfileStackScreen} />

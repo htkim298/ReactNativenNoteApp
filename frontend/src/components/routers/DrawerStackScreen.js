@@ -84,7 +84,7 @@ const DrawerStackScreen = () => {
       drawerContent={({navigation}) => ( 
         <CustomDrawer navigation={navigation} /> 
       )}> 
-      <Drawer.Screen name="Main" component={TabStackScreen} /> 
+      <Drawer.Screen name="Note" component={TabStackScreen} /> 
       {/* <Drawer.Screen name="imagestack" component={ImageStackScreen} />  */}
       {/* <Drawer.Screen name="aboutstack" component={AboutStackScreen} />  */}
     </Drawer.Navigator> 

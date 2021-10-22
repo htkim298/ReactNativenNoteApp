@@ -9,7 +9,7 @@ const ViewStyled = styled(View)`
 
 export default function HomeDetailScreen() {
     return (
-        <View style={{ flex:1, backgroundColor: 'white'}}>
+        <View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: 'white' }}>
             <Text>홈 디테일 화면</Text>
         </View>
     )
