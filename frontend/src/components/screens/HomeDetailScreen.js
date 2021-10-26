@@ -1,16 +1,17 @@
-import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
-import styled from 'styled-components';
+import React from 'react';
+import { Text, View, Button } from 'react-native';
 
-const ViewStyled = styled(View)`
-    color: red;
-    background-color: red;
-`;
-
-export default function HomeDetailScreen() {
+const HomeDetailScreen = ({ navigation, route }) => {
     return (
         <View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: 'white' }}>
-            <Text>홈 디테일 화면</Text>
+            <Text>홈 디테일 변경</Text>
+            <Text>{route.params.title}</Text>
+            <Button
+                title="Go to Details... again"
+                onPress={() => navigation.navigate('Home')}
+            />
         </View>
     )
 }
+
+export default HomeDetailScreen;
