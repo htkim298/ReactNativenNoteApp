@@ -29,15 +29,18 @@ const HomeScreen = ({ navigation }) => {
         <View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: 'white' }}>
             {datas.map((data, idx) => {
                 return (
-                    <TouchableOpacity
-                        onPress={()=> {
-                            navigation.navigate('HomeDetailScreen', {
-                                title: data.Title
-                            })
-                        }}
-                    >
-                        <Text key={idx}>{data.Name}</Text>
-                    </TouchableOpacity>
+                    <View key={idx}>
+                        <TouchableOpacity
+                            onPress={()=> {
+                                navigation.navigate('HomeDetailScreen', {
+                                    title: data.Title
+                                })
+                            }}
+                        >
+                            <Text key={idx}>{data.Name}</Text>
+                        </TouchableOpacity>
+                    </View>
+
                 ) 
             })}
             <Button title="apiCall" onPress={_callApi} />

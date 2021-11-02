@@ -7,6 +7,7 @@ import HomeDetailScreen from 'components/screens/HomeDetailScreen';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import ProfileHomeScreen from 'components/screens/profiles/ProfileHomeScreen';
 import WriteScreen from 'components/screens/writes/WriteScreen';
+import AlarmScreen from 'components/screens/alarms/AlarmScreen';
 
 const HomeStack = createStackNavigator(); 
 const HomeStackScreen = ({}) => { 
@@ -26,20 +27,6 @@ const HomeStackScreen = ({}) => {
   )
 }
 
-// const HomeDetailStack = createStackNavigator();
-// const HomeDetailStackScreen = ({ navigation }) => {
-//   return (
-//     <HomeDetailStack.Navigator>
-//       <HomeDetailStack.Screen 
-//         name="HomeDetailScreen"
-//         options={{ title: 'HomeDetail' }}
-//         // options={{ headerShown: false }}
-//         component={HomeDetailScreen}
-//       />
-//     </HomeDetailStack.Navigator>
-//   )
-// }
-
 const WriteStack = createStackNavigator();
 const WriteStackScreen = () => {
   return (
@@ -52,6 +39,20 @@ const WriteStackScreen = () => {
     </WriteStack.Navigator>
   )
 }
+
+const AlarmStack = createStackNavigator();
+const AlarmStackScreen = () => {
+  return (
+    <AlarmStack.Navigator>
+      <AlarmStack.Screen
+        name="AlarmScreen"
+        options={{ headerShown: false }}
+        component={AlarmScreen}
+      />
+    </AlarmStack.Navigator>
+  )
+}
+
 
 const ProfileStack = createStackNavigator(); 
 const ProfileStackScreen = ({}) => { 
@@ -83,14 +84,15 @@ const TabStackScreen = () => {
               iconName = focused ? 'pencil' : 'pencil-outline'; 
             } else if (route.name === 'Profile') { 
               iconName = focused ? 'ios-person' : 'ios-person-outline'; 
+            } else if (route.name === 'Alarm') { 
+              iconName = focused ? 'notifications' : 'notifications-outline'; 
             }
-            
             // You can return any component that you like here! 
             return <Ionicons name={iconName} size={29} color={color} />; 
           },
           tabBarStyle: { position: 'absolute' },
           tabBarShowLabel: false,
-          tabBarActiveTintColor: 'tomato', 
+          tabBarActiveTintColor: 'black', 
           tabBarInactiveTintColor: 'gray', 
           headerShown: false,
         })}
@@ -98,6 +100,7 @@ const TabStackScreen = () => {
         <Tab.Screen name="Home" component={HomeStackScreen} /> 
         {/* <Tab.Screen name="HomeDetail" component={HomeDetailStackScreen} /> */}
         <Tab.Screen name="Write" component={WriteStackScreen} />
+        <Tab.Screen name="Alarm" component={AlarmScreen} />
         <Tab.Screen name="Profile" component={ProfileStackScreen} />
       </Tab.Navigator> 
   ); 

@@ -8,7 +8,7 @@ const HomeDetailScreen = ({ navigation, route }) => {
             <Text>{route.params.title}</Text>
             <Button
                 title="Go to Details... again"
-                onPress={() => navigation.navigate('Home')}
+                onPress={() => navigation.goBack('Home')}
             />
         </View>
     )
